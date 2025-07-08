@@ -1,0 +1,4 @@
+Contact: mailto:theadproject01@gmail.com
+Preferred-Languages: en
+Policy: https://theadproject.in/security-policy
+Acknowledgements: https://theadproject.in/hall-of-fame
