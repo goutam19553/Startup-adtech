@@ -36,27 +36,28 @@ const Footer = () => {
             <p className="mb-4 text-gray-300">
               Connecting advertisers with ad space owners across India through our innovative digital marketplace.
             </p>
-           <div className="flex flex-col space-y-2">
-  <div className="flex space-x-4">
-    <a href="#" className="text-gray-300 hover:text-bharat-saffron">
-      <Instagram className="h-5 w-5" />
-    </a>
-    <a
-      href="https://www.linkedin.com/company/the-adz-project/"
-      className="text-gray-300 hover:text-bharat-saffron"
-    >
-      <Linkedin className="h-5 w-5" />
-    </a>
-  </div>
-  <a
-    href="https://portfolio.adproject.in/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-1 inline-block text-sm font-medium text-bharat-saffron hover:underline hover:text-white transition-colors duration-200"
-  >
-    ↗ View Portfolio
-  </a>
-</div>
+            <div className="flex flex-col space-y-2">
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-300 hover:text-bharat-saffron">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/the-adz-project/"
+                  className="text-gray-300 hover:text-bharat-saffron"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+              <a
+                href="https://portfolio.adproject.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-block text-sm font-medium text-bharat-saffron hover:underline hover:text-white transition-colors duration-200"
+              >
+                ↗ View Portfolio
+              </a>
+            </div>
+          </div>
 
           {/* Quick Links */}
           <div>
