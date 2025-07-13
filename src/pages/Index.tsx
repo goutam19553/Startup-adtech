@@ -445,191 +445,200 @@ const Index = () => {
         </motion.section>
       ))}
 
-      {/* Featured Ad Spaces - Futuristic 3D Curved Carousel */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-gray-200/10 to-transparent dark:via-gray-900/10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
-              Premium Ad Spaces Collection
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Explore our exclusive inventory of high-impact advertising locations across India
-            </p>
-          </motion.div>
+    {/* Featured Ad Spaces - Futuristic 3D Interactive Showcase */}
+<section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+  <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-gray-200/10 to-transparent dark:via-gray-900/10"></div>
+  <div className="container mx-auto px-4 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 dark:from-gray-100 dark:via-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
+        Premium Ad Spaces Collection
+      </h2>
+      <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Explore our exclusive inventory of high-impact advertising locations across India
+      </p>
+    </motion.div>
 
-          {/* Futuristic 3D Curved Carousel */}
-          <div className="relative h-[600px] w-full perspective-1000 overflow-visible" ref={sliderRef}>
-            {/* Carousel track with curved layout */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {featuredAdSpaces.map((adSpace, index) => {
-                const { angle, translateZ, scale, opacity, distanceFromCenter } = getCurvedPosition(index);
-                const isCenter = distanceFromCenter === 0;
+    {/* Futuristic Interactive Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {featuredAdSpaces.map((adSpace, index) => (
+        <motion.div
+          key={adSpace.id}
+          className="relative group perspective-1000"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -10 }}
+        >
+          {/* Holographic Card Effect */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 group-hover:rotate-x-12 group-hover:rotate-y-12">
+            {/* Holographic layers */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+            
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+              <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/30 to-blue-500/30 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            
+            {/* Main content */}
+            <div className="relative h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
+              {/* Image with parallax effect */}
+              <div className="relative h-64 overflow-hidden">
+                <motion.img 
+                  src={adSpace.image} 
+                  alt={adSpace.title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                  Featured
+                </div>
+              </div>
+              
+              {/* Floating info bubbles */}
+              <div className="absolute top-4 left-4 flex gap-2">
+                <div className="bg-white/90 dark:bg-gray-800/90 text-xs px-2 py-1 rounded-full shadow-sm flex items-center">
+                  <MapPin className="w-3 h-3 mr-1 text-blue-500" />
+                  <span>Mumbai</span>
+                </div>
+                <div className="bg-white/90 dark:bg-gray-800/90 text-xs px-2 py-1 rounded-full shadow-sm flex items-center">
+                  <Eye className="w-3 h-3 mr-1 text-purple-500" />
+                  <span>50K+ views/day</span>
+                </div>
+              </div>
+              
+              {/* Card content */}
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">{adSpace.title}</h3>
+                  <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full">
+                    {adSpace.type}
+                  </span>
+                </div>
                 
-                return (
+                {/* Interactive rating with animation */}
+                <div className="flex items-center mb-4">
+                  <div className="flex mr-2">
+                    {[...Array(5)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ type: "spring", stiffness: 500 }}
+                      >
+                        <Star 
+                          className={`w-4 h-4 ${i < Math.floor(adSpace.rating) ? 'text-amber-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">({adSpace.rating})</span>
+                </div>
+                
+                {/* Price indicator with animation */}
+                <div className="mb-6">
+                  <div className="flex justify-between items-center text-sm mb-1">
+                    <span className="text-gray-500 dark:text-gray-400">Starting from</span>
+                    <span className="font-bold text-gray-900 dark:text-white">₹25,000/day</span>
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <motion.div 
+                      className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${Math.random() * 30 + 60}%` }}
+                      transition={{ duration: 1, delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Action buttons with magnetic hover effect */}
+                <div className="flex gap-3">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg text-sm font-medium hover:shadow-md transition-all duration-300 relative overflow-hidden group"
+                    onClick={() => togglePopup(adSpace)}
+                  >
+                    <span className="relative z-10">Enquire Now</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-amber-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </motion.button>
+                  
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg text-sm font-medium hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">AR Preview</span>
+                    <span className="absolute inset-0 bg-gray-200 dark:bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </motion.button>
+                </div>
+              </div>
+              
+              {/* Floating particles effect */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(10)].map((_, i) => (
                   <motion.div
-                    key={adSpace.id}
-                    className={`absolute w-72 h-96 rounded-2xl shadow-2xl overflow-hidden border-2 ${
-                      isCenter 
-                        ? 'border-amber-500/50 dark:border-amber-400/50' 
-                        : 'border-gray-200/30 dark:border-gray-700/50'
-                    }`}
-                    initial={false}
+                    key={i}
+                    className="absolute bg-white/50 rounded-full"
+                    initial={{
+                      x: Math.random() * 100,
+                      y: Math.random() * 100,
+                      width: Math.random() * 3 + 1,
+                      height: Math.random() * 3 + 1,
+                      opacity: 0
+                    }}
                     animate={{
-                      x: angle * 20,
-                      y: Math.abs(angle) * 0.5,
-                      z: translateZ,
-                      scale,
-                      opacity,
-                      rotateY: angle,
-                      filter: isCenter ? 'brightness(1.1)' : 'brightness(0.8)',
+                      y: [0, Math.random() * 50 - 25],
+                      x: [0, Math.random() * 50 - 25],
+                      opacity: [0, 0.5, 0],
                     }}
                     transition={{
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 20
+                      duration: Math.random() * 5 + 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: Math.random() * 5
                     }}
-                    whileHover={{
-                      scale: scale * 1.05,
-                      z: translateZ + 20,
-                    }}
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transformOrigin: "center bottom",
-                    }}
-                  >
-                    <div className="relative h-full group">
-                      {/* Holographic effect */}
-                      <div className={`absolute inset-0 ${
-                        isCenter 
-                          ? 'bg-gradient-to-br from-amber-500/10 to-blue-500/10' 
-                          : 'bg-gradient-to-br from-gray-500/5 to-gray-700/5'
-                      } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                      
-                      {/* Glow effect for center card */}
-                      {isCenter && (
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                          <div className="absolute inset-0 rounded-2xl bg-amber-500/10 blur-md animate-pulse"></div>
-                          <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_5px_rgba(245,158,11,0.3)]"></div>
-                        </div>
-                      )}
-                      
-                      {/* Image with gradient overlay */}
-                      <div className="relative h-48 overflow-hidden">
-                        <img 
-                          src={adSpace.image} 
-                          alt={adSpace.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                        <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                          Featured
-                        </div>
-                      </div>
-                      
-                      {/* Card content */}
-                      <div className="p-6 h-[calc(100%-12rem)] flex flex-col bg-white dark:bg-gray-900">
-                        <div className="flex justify-between items-start mb-3">
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">{adSpace.title}</h3>
-                          <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full">
-                            {adSpace.type}
-                          </span>
-                        </div>
-                        
-                        <div className="mt-auto flex justify-between items-center">
-                          <div className="flex items-center">
-                            {[...Array(5)].map((_, i) => (
-                              <Star 
-                                key={i} 
-                                className={`w-4 h-4 ${i < Math.floor(adSpace.rating) ? 'text-amber-400 fill-current' : 'text-gray-300 dark:text-gray-600'}`}
-                              />
-                            ))}
-                            <span className="text-xs text-gray-500 dark:text-gray-400 ml-1">({adSpace.rating})</span>
-                          </div>
-                          <button 
-                            onClick={() => togglePopup(adSpace)}
-                            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg text-sm font-medium hover:shadow-md transition-all duration-300 hover:scale-105"
-                          >
-                            Enquire Now
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Navigation controls */}
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-20">
-              <button 
-                onClick={prevSlide}
-                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                aria-label="Previous slide"
-              >
-                <div className="relative">
-                  <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                  <div className="absolute inset-0 rounded-full bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-              </button>
-              
-              <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                {featuredAdSpaces.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      currentSlide === index 
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 w-6 scale-125' 
-                        : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
-              
-              <button 
-                onClick={nextSlide}
-                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                aria-label="Next slide"
-              >
-                <div className="relative">
-                  <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                  <div className="absolute inset-0 rounded-full bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-              </button>
             </div>
           </div>
+        </motion.div>
+      ))}
+    </div>
 
-          {/* View All Button */}
-          <div className="mt-16 text-center">
-            <Link 
-              to="/ad-spaces" 
-              className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-white transition duration-300 ease-out rounded-full shadow-xl group"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 group-hover:from-blue-700 group-hover:via-blue-600 group-hover:to-indigo-700 transition-all duration-500"></span>
-              <span className="absolute bottom-0 right-0 w-8 h-8 -mb-8 -mr-8 transition-all duration-500 ease-out transform translate-x-0 translate-y-0 bg-blue-800 rounded-full group-hover:-translate-x-1 group-hover:-translate-y-1"></span>
-              <span className="absolute top-0 left-0 w-8 h-8 -mt-8 -ml-8 transition-all duration-500 ease-out transform -translate-x-0 -translate-y-0 bg-indigo-800 rounded-full group-hover:translate-x-1 group-hover:translate-y-1"></span>
-              <span className="relative z-20 flex items-center text-sm md:text-base">
-                <span className="mr-2">Explore All Ad Spaces</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </span>
-              <span className="absolute inset-0 w-full h-full rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="absolute inset-0 bg-white/10 rounded-full animate-pulse"></span>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
+    {/* View All Button with advanced hover effects */}
+    <div className="mt-16 text-center">
+      <Link 
+        to="/ad-spaces" 
+        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-white transition duration-300 ease-out rounded-full shadow-xl group"
+      >
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 group-hover:from-blue-700 group-hover:via-blue-600 group-hover:to-indigo-700 transition-all duration-500"></span>
+        <span className="absolute bottom-0 right-0 w-8 h-8 -mb-8 -mr-8 transition-all duration-500 ease-out transform translate-x-0 translate-y-0 bg-blue-800 rounded-full group-hover:-translate-x-1 group-hover:-translate-y-1"></span>
+        <span className="absolute top-0 left-0 w-8 h-8 -mt-8 -ml-8 transition-all duration-500 ease-out transform -translate-x-0 -translate-y-0 bg-indigo-800 rounded-full group-hover:translate-x-1 group-hover:translate-y-1"></span>
+        <span className="relative z-20 flex items-center text-sm md:text-base">
+          <span className="mr-2">Explore All Ad Spaces</span>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </span>
+        <span className="absolute inset-0 w-full h-full rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="absolute inset-0 bg-white/10 rounded-full animate-pulse"></span>
+        </span>
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* Enquire Popup - UPDATED */}
       <AnimatePresence>
