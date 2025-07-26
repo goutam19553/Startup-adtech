@@ -1,127 +1,94 @@
-// src/pages/blog/posts/Blog1.tsx
-
-import { Helmet } from "react-helmet-async";
+import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog1 = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const Spinner3D = () => (
+    <div className="fixed inset-0 flex justify-center items-center bg-gray-900 z-50">
+      <div className="w-20 h-20 perspective">
+        <div className="cube">
+          <div className="face front bg-bharat-teal" />
+          <div className="face back bg-bharat-navy" />
+          <div className="face right bg-bharat-teal/80" />
+          <div className="face left bg-bharat-teal/80" />
+          <div className="face top bg-bharat-teal/60" />
+          <div className="face bottom bg-bharat-teal/60" />
+        </div>
+      </div>
+      <style>{`
+        .perspective { perspective: 800px; }
+        .cube {
+          width: 80px; height: 80px;
+          position: relative;
+          transform-style: preserve-3d;
+          animation: spinCube 1.8s linear infinite;
+        }
+        .face {
+          position: absolute;
+          width: 80px; height: 80px;
+          opacity: 0.9;
+          border: 2px solid #14b8a6;
+        }
+        .front  { transform: translateZ(40px); }
+        .back   { transform: rotateY(180deg) translateZ(40px); }
+        .right  { transform: rotateY(90deg) translateZ(40px); }
+        .left   { transform: rotateY(-90deg) translateZ(40px); }
+        .top    { transform: rotateX(90deg) translateZ(40px); }
+        .bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+        @keyframes spinCube {
+          0%   { transform: rotateX(0deg) rotateY(0deg); }
+          100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+      `}</style>
+    </div>
+  );
+
+  if (loading) return <Spinner3D />;
+
   return (
-    <div className="p-8 max-w-3xl mx-auto">
+    <div className="bg-gray-900 text-white min-h-screen py-20 px-4">
       <Helmet>
-        <title>How 3D Billboards Are Changing the Game | The Ad Project</title>
-        <meta
-          name="description"
-          content="Explore how The Ad Project is using immersive 3D billboards to revolutionize outdoor branding in India."
-        />
+        <title>How 3D Billboards Are Changing Advertising in 2025 | The Ad Project</title>
+        <meta name="description" content="Explore how The Ad Project is revolutionizing Indian outdoor advertising with 3D billboards, driving deeper brand engagement and innovation." />
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-4">
-        How 3D Billboards Are Changing the Game for Brand Engagement in 2025 – A Revolution Led by The Ad Project
-      </h1>
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4 text-bharat-teal">How 3D Billboards Are Changing the Game in 2025</h1>
+        <p className="text-sm text-gray-400 mb-8">Published on July 26, 2025</p>
 
-      <p className="text-sm text-gray-500 mb-6">Posted on July 26, 2025</p>
+        <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+          <p>
+            Outdoor advertising in India is undergoing a major shift — and at the center of this transformation is The Ad Project.
+            We’re not just putting up billboards. We’re engineering spectacles that stop people in their tracks.
+          </p>
 
-      <article className="prose prose-lg max-w-none">
-        <p>
-          The world of outdoor advertising is undergoing a dramatic transformation, and at the heart of this change is the
-          rise of <strong>3D billboards</strong>—hyper-real, eye-popping, and impossible to ignore. These larger-than-life
-          installations are doing far more than just displaying ads—they’re pulling people into immersive brand stories.
-        </p>
+          <p>
+            Our 3D billboards create illusions that leap off the screen, merging the digital and physical world in breathtaking ways.
+            Whether it’s a sneaker bursting out of a building or a tiger roaring in mid-air on a city square — these visuals are not just eye-catching, they’re unforgettable.
+          </p>
 
-        <p>
-          In 2025, <strong>The Ad Project</strong> is pioneering this revolution across India, turning traditional hoardings
-          into dynamic, data-driven experiences that make people stop, stare, and share.
-        </p>
+          <p>
+            Brands using these immersive 3D experiences have seen <strong>3–5x higher engagement</strong> compared to traditional static ads.
+            It’s not just advertising anymore — it’s storytelling at a massive scale.
+          </p>
 
-        <h2>What Are 3D Billboards?</h2>
-        <p>
-          3D billboards combine <strong>anamorphic illusions</strong>, <strong>augmented reality (AR)</strong>, and next-gen
-          display tech to trick the eye into seeing three dimensions on a two-dimensional screen.
-        </p>
+          <p>
+            The Ad Project is leading this 3D revolution across major cities like Mumbai, Bangalore, Pune, and Hyderabad.
+            With AR integrations and smart performance tracking, our approach combines visual drama with data-driven impact.
+          </p>
 
-        <p>They’re not just signs; they’re spectacles.</p>
-
-        <h2>Types of 3D Billboards</h2>
-
-        <h3>🌀 Anamorphic 3D Billboards</h3>
-        <p>
-          These use depth and perspective tricks so that visuals look 3D when viewed from a specific angle.
-        </p>
-
-        <h3>🤝 Interactive 3D Billboards</h3>
-        <p>
-          Equipped with sensors, motion triggers, or QR-based AR interactions, these billboards allow real-time audience
-          engagement.
-        </p>
-
-        <h3>✨ Holographic Billboards</h3>
-        <p>
-          Floating visuals, virtual spokespeople, and futuristic product displays—all made possible with holograms.
-        </p>
-
-        <h2>Why 3D Billboards Work</h2>
-
-        <h3>🔥 Maximum Attention, Minimal Time</h3>
-        <p>
-          A standard billboard may get a glance—3D billboards hold attention for <strong>4–6 seconds longer</strong>.
-        </p>
-
-        <h3>💡 Deeper Brand Connection</h3>
-        <p>
-          These billboards generate stronger emotional connections, leading to up to <strong>47% higher brand recognition</strong>.
-        </p>
-
-        <h3>📈 Better ROI</h3>
-        <p>
-          3D billboard campaigns are proving <strong>30% more effective</strong> than traditional outdoor ads.
-        </p>
-
-        <h2>The Ad Project: Leading India’s 3D Billboard Movement</h2>
-        <p>
-          As India’s leading ad-tech platform for <strong>physical ad space innovation</strong>, The Ad Project is at the
-          forefront of the 3D billboard boom.
-        </p>
-
-        <p>
-          We combine <strong>AI-powered targeting</strong>, <strong>AR</strong>, <strong>analytics</strong>, and
-          <strong>eco-conscious materials</strong> to deliver immersive, impactful campaigns.
-        </p>
-
-        <h2>How 3D Billboards Are Revolutionizing Brand Engagement</h2>
-
-        <h3>🎥 Immersive Storytelling</h3>
-        <p>
-          These ads draw viewers into the brand world instantly through dynamic motion and narrative.
-        </p>
-
-        <h3>📱 Built for Social Media Virality</h3>
-        <p>
-          3D billboards are frequently captured and shared, offering <strong>organic viral reach</strong>.
-        </p>
-
-        <h3>🧠 Smarter Targeting with AI</h3>
-        <p>
-          The Ad Project enables advertisers to track footfall and customize 3D content in real-time.
-        </p>
-
-        <h2>A Glimpse Into the Future</h2>
-        <p>
-          3D billboards are becoming a standard. Brands that don’t adapt will fall behind.
-        </p>
-
-        <p>
-          <strong>The Ad Project</strong> is helping brands <strong>lead the change</strong> with accessible, data-driven,
-          high-tech outdoor media.
-        </p>
-
-        <h2>Transform Your Outdoor Advertising with The Ad Project</h2>
-        <p>
-          Let your next campaign do more than just “show up.” Let it <strong>move</strong>, <strong>wow</strong>, and
-          <strong>connect</strong>.
-        </p>
-
-        <p>
-          Partner with <strong>The Ad Project</strong> and turn your billboard into a landmark.
-        </p>
-      </article>
+          <p>
+            This is more than a campaign. It’s the future of outdoor advertising in India — and it’s already here.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
