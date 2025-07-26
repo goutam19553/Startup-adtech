@@ -157,7 +157,7 @@ const App = () => {
 
                   {/* 🆕 Blog Routes */}
                   <Route path="/blog" element={<BlogIndex />} />
-                  <Route path="/blog/posts/Blog1" element={<Blog1 />} />
+                 <Route path="/blog/posts/:slug" element={<Blog1 />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
