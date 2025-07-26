@@ -1,4 +1,3 @@
-// src/App.tsx
 import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,10 +10,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import AIAnalytics from "./pages/AIAnalytics";
 import DesktopNotice from "./components/DesktopNotice";
 
-// 🆕 Blog Pages
-import BlogIndex from "./pages/blog/BlogIndex";
-import Blog1 from "./pages/blog/posts/Blog1";
-
 // Lazy-loaded pages
 const AdSpaces = lazy(() => import("./pages/AdSpaces"));
 const Advertisers = lazy(() => import("./pages/Advertisers"));
@@ -25,9 +20,12 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AdSpaceUpload = lazy(() => import("./pages/AdSpaceUpload"));
 const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage"));
 
+// Blog components
+const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
+const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
+
 const queryClient = new QueryClient();
 
-// 👇 Earn Money Section
 const EarnMoneySection = () => {
   const navigate = useNavigate();
   return (
@@ -50,7 +48,6 @@ const EarnMoneySection = () => {
   );
 };
 
-// 👇 Government Support Section
 const GovernmentSupportSection = () => {
   const navigate = useNavigate();
   return (
@@ -77,7 +74,6 @@ const GovernmentSupportSection = () => {
   );
 };
 
-// 👇 Contact Form
 const ContactForm = () => {
   return (
     <section className="py-20 px-6 bg-white dark:bg-gray-900" id="contact">
@@ -86,7 +82,7 @@ const ContactForm = () => {
           Contact Us
         </h2>
         <p className="text-center text-gray-600 dark:text-gray-300 mb-10">
-          Have questions, suggestions, or want to collaborate? Reach out and we’ll get back to you.
+          Have questions, suggestions, or want to collaborate? Reach out and we'll get back to you.
         </p>
         <form className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
@@ -120,7 +116,6 @@ const ContactForm = () => {
   );
 };
 
-// 👇 Main App Component
 const App = () => {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -140,14 +135,14 @@ const App = () => {
                 <Routes>
                   <Route
                     path="/"
-                    element={(
+                    element={
                       <>
                         <Index />
                         <EarnMoneySection />
                         <GovernmentSupportSection />
                         <ContactForm />
                       </>
-                    )}
+                    }
                   />
                   <Route path="/ad-space-owners" element={<AdSpaceOwners />} />
                   <Route path="/ad-spaces" element={<AdSpaces />} />
@@ -158,9 +153,9 @@ const App = () => {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/government-support" element={<GovernmentSupportPage />} />
 
-                  {/* 🆕 Blog Routes */}
+                  {/* Blog Routes */}
                   <Route path="/blog" element={<BlogIndex />} />
-                  <Route path="/blog/posts/blog1" element={<Blog1 />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
