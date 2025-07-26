@@ -1,28 +1,43 @@
-// src/pages/blog/BlogIndex.tsx
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-// Mock data - replace with your actual data fetching logic
-const blogPosts = [
-  {
-    slug: "getting-started-with-adtech",
-    title: "Getting Started with AdTech",
-    description: "Learn the basics of advertising technology",
-    date: "2023-11-15"
-  },
-  {
-    slug: "ai-in-advertising",
-    title: "AI in Advertising",
-    description: "How artificial intelligence is transforming ads",
-    date: "2023-11-10"
-  }
-];
+interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+}
 
 export default function BlogIndex() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        // Load the posts manifest
+        const response = await fetch('/posts/posts.json');
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error loading blog posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPosts();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-20">Loading blog posts...</div>;
+  }
+
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-8">Blog</h1>
       <div className="space-y-6">
-        {blogPosts.map(post => (
+        {posts.map(post => (
           <div key={post.slug} className="border-b pb-6">
             <Link 
               to={`/blog/${post.slug}`}
@@ -30,8 +45,8 @@ export default function BlogIndex() {
             >
               {post.title}
             </Link>
-            <p className="text-gray-600 mt-2">{post.description}</p>
-            <p className="text-sm text-gray-500 mt-2">{post.date}</p>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">{post.description}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{post.date}</p>
           </div>
         ))}
       </div>
