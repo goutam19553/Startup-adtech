@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,7 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import AIAnalytics from "./pages/AIAnalytics";
 import DesktopNotice from "./components/DesktopNotice";
 
-// 👉 Blog Imports
+// 🆕 Blog Pages
 import BlogIndex from "./pages/blog/BlogIndex";
 import Blog1 from "./pages/blog/posts/Blog1";
 
@@ -26,9 +27,9 @@ const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage")
 
 const queryClient = new QueryClient();
 
+// 👇 Earn Money Section
 const EarnMoneySection = () => {
   const navigate = useNavigate();
-
   return (
     <section className="earn-money-section text-center bg-white dark:bg-gray-900 py-20 px-6 overflow-hidden mb-0">
       <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -39,7 +40,7 @@ const EarnMoneySection = () => {
           You can earn money by simply uploading your wall spaces. Advertisers will pay to place ads on your walls, allowing you to earn a passive income from your property. It's that simple!
         </p>
         <button
-          onClick={() => navigate("/ad-space-upload")} 
+          onClick={() => navigate("/ad-space-upload")}
           className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black text-lg font-semibold rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pulse"
         >
           Upload Now
@@ -49,9 +50,9 @@ const EarnMoneySection = () => {
   );
 };
 
+// 👇 Government Support Section
 const GovernmentSupportSection = () => {
   const navigate = useNavigate();
-
   return (
     <section className="px-6 dark:bg-gray-900 py-20 overflow-hidden mt-0">
       <div className="bg-[#1B3A4B] text-white rounded-xl shadow-lg px-6 py-10 md:flex md:items-center md:justify-between">
@@ -76,6 +77,7 @@ const GovernmentSupportSection = () => {
   );
 };
 
+// 👇 Contact Form
 const ContactForm = () => {
   return (
     <section className="py-20 px-6 bg-white dark:bg-gray-900" id="contact">
@@ -118,6 +120,7 @@ const ContactForm = () => {
   );
 };
 
+// 👇 Main App Component
 const App = () => {
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -157,7 +160,7 @@ const App = () => {
 
                   {/* 🆕 Blog Routes */}
                   <Route path="/blog" element={<BlogIndex />} />
-              <Route path="/blog/posts/blog1" element={<Blog1 />} />
+                  <Route path="/blog/posts/blog1" element={<Blog1 />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
