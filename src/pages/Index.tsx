@@ -8,6 +8,11 @@ import FootTrafficDemo from "@/components/FootTrafficDemo";
 import BrandSlider from "@/components/BrandSlider";
 import { Sparkles, BarChart, Radar, Eye, Move3D, MapPin, Zap, TrendingUp, Award, Building, Star, X, ChevronLeft, ChevronRight } from "lucide-react";
 import HowItWorks from "@/components/HowItWorks";
+import Clarity from '@microsoft/clarity';
+
+Clarity.init(sktmgrywcg); // 🔁 Replace with your actual Clarity Project ID
+
+
 
 // Animation variants
 const fadeInUp: Variants = {
