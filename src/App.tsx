@@ -8,7 +8,11 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 import AIAnalytics from "./pages/AIAnalytics";
-import DesktopNotice from "./components/DesktopNotice"; // ✅ Imported
+import DesktopNotice from "./components/DesktopNotice";
+
+// 👉 Blog Imports
+import BlogIndex from "./pages/blog/BlogIndex";
+import Blog1 from "./pages/blog/posts/Blog1";
 
 // Lazy-loaded pages
 const AdSpaces = lazy(() => import("./pages/AdSpaces"));
@@ -22,7 +26,6 @@ const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage")
 
 const queryClient = new QueryClient();
 
-// 👇 Create the "Earn Money" section as a separate component
 const EarnMoneySection = () => {
   const navigate = useNavigate();
 
@@ -46,7 +49,6 @@ const EarnMoneySection = () => {
   );
 };
 
-// 👇 Updated "Government Support" section
 const GovernmentSupportSection = () => {
   const navigate = useNavigate();
 
@@ -116,9 +118,7 @@ const ContactForm = () => {
   );
 };
 
-
 const App = () => {
-  // ✅ Force dark mode by default
   useEffect(() => {
     document.documentElement.classList.add("dark");
   }, []);
@@ -129,7 +129,7 @@ const App = () => {
         <Toaster />
         <BrowserRouter>
           <ScrollToTop />
-          <DesktopNotice /> {/* ✅ Fancy popup here */}
+          <DesktopNotice />
           <div className="flex flex-col min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
             <Navbar />
             <main className="flex-grow">
@@ -139,7 +139,7 @@ const App = () => {
                     path="/"
                     element={(
                       <>
-                        <Index />          
+                        <Index />
                         <EarnMoneySection />
                         <GovernmentSupportSection />
                         <ContactForm />
@@ -154,6 +154,11 @@ const App = () => {
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/government-support" element={<GovernmentSupportPage />} />
+
+                  {/* 🆕 Blog Routes */}
+                  <Route path="/blog" element={<BlogIndex />} />
+                  <Route path="/blog/posts/Blog1" element={<Blog1 />} />
+
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
