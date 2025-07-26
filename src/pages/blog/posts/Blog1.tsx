@@ -1,12 +1,8 @@
+// src/pages/blog/posts/Blog1.tsx
+
 import { Helmet } from "react-helmet-async";
-import { useParams } from "react-router-dom";
 
 const Blog1 = () => {
-  const { slug } = useParams();
-
-  // You can later use `slug` to fetch dynamic blog content
-  // For now, we're rendering static content based on a known slug
-
   return (
     <div className="p-8 max-w-3xl mx-auto">
       <Helmet>
