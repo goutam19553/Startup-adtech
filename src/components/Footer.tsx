@@ -66,7 +66,7 @@ const Footer = () => {
               <li><Link to="/" className="text-gray-300 hover:text-bharat-saffron">Home</Link></li>
               <li><Link to="/ad-spaces" className="text-gray-300 hover:text-bharat-saffron">Ad Spaces</Link></li>
               <li><Link to="/advertisers" className="text-gray-300 hover:text-bharat-saffron">Advertisers</Link></li>
-              <li><Link to="/ad-space-owners" className="text-gray-300 hover:text-bharat-saffron">Ad Space Owners</Link></li>
+              <li><Link to="/blog" className="text-gray-300 hover:text-bharat-saffron">Blog</Link></li>
               <li><Link to="/about" className="text-gray-300 hover:text-bharat-saffron">About Us</Link></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-bharat-saffron">Contact Us</Link></li>
             </ul>
