@@ -10,7 +10,7 @@ import { Sparkles, BarChart, Radar, Eye, Move3D, MapPin, Zap, TrendingUp, Award,
 import HowItWorks from "@/components/HowItWorks";
 import Clarity from '@microsoft/clarity';
 
-Clarity.init(sktmgrywcg); // 🔁 
+Clarity.init("sktmgrywcg"); // 🔁 
 
 
 
