@@ -8,14 +8,14 @@ const BlogIndex = () => {
     {
       title: 'How 3D Billboards Are Changing the Game for Brand Engagement in 2025',
       date: 'July 26, 2025',
-      path: '/blog/posts/Blog1',
+      path: '/blog/posts/blog1', // Make sure this matches the route
       description: 'The Ad Project is bringing a revolution to Indian outdoor advertising with 3D billboards that mesmerize audiences. Learn how this tech is changing branding forever.',
     },
-    // You can add more blogs here in the future.
+    // Add more blog posts here as needed
   ];
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-8 max-w-4xl mx-auto text-white">
       <Helmet>
         <title>Blog | The Ad Project</title>
         <meta name="description" content="Read the latest insights, innovations, and stories from The Ad Project about outdoor advertising, AR, and marketing in India." />
@@ -25,11 +25,11 @@ const BlogIndex = () => {
 
       <div className="space-y-6">
         {blogPosts.map((post, index) => (
-          <div key={index} className="p-6 border rounded-lg hover:shadow-md transition">
-            <h2 className="text-2xl font-semibold">{post.title}</h2>
-            <p className="text-sm text-gray-500 mb-2">{post.date}</p>
-            <p className="mb-4">{post.description}</p>
-            <Link to={post.path} className="text-blue-600 hover:underline">
+          <div key={index} className="p-6 border rounded-lg hover:shadow-md transition bg-gray-800">
+            <h2 className="text-2xl font-semibold text-bharat-teal">{post.title}</h2>
+            <p className="text-sm text-gray-400 mb-2">{post.date}</p>
+            <p className="mb-4 text-gray-300">{post.description}</p>
+            <Link to={post.path} className="text-bharat-teal hover:underline font-semibold">
               Read More →
             </Link>
           </div>
