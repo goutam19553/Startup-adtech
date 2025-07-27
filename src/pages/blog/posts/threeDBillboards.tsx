@@ -1,121 +1,133 @@
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import React from "react";
 import { Helmet } from "react-helmet";
 
 const ThreeDBillboards = () => {
-  const mountRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!mountRef.current) return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
-      0.1,
-      1000
-    );
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(
-      mountRef.current.clientWidth,
-      mountRef.current.clientHeight
-    );
-    mountRef.current.innerHTML = ""; // Clear any previous render
-    mountRef.current.appendChild(renderer.domElement);
-
-    // Lighting
-    const light = new THREE.AmbientLight(0xffffff, 1);
-    scene.add(light);
-
-    // Billboard (a simple box to represent a billboard)
-    const geometry = new THREE.BoxGeometry(3, 2, 0.1);
-    const material = new THREE.MeshStandardMaterial({ color: "#0099ff" });
-    const billboard = new THREE.Mesh(geometry, material);
-    scene.add(billboard);
-
-    camera.position.z = 5;
-
-    // Animation
-    const animate = () => {
-      requestAnimationFrame(animate);
-      billboard.rotation.y += 0.005;
-      billboard.rotation.x += 0.003;
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Cleanup on unmount
-    return () => {
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] text-white px-6 py-16">
+    <main className="min-h-screen bg-gradient-to-b from-gray-800 via-gray-900 to-gray-900 text-gray-100">
       <Helmet>
-        <title>The Rise of 3D Billboards in India | The Ad Project</title>
+        <title>3D Billboards in India 2025 | The Ad Project</title>
         <meta
           name="description"
-          content="Discover how 3D billboards are transforming the landscape of Indian advertising. The Ad Project is leading the innovation."
+          content="Discover how 3D billboards are revolutionizing brand engagement in India. Explore immersive marketing trends with The Ad Project."
         />
-        <meta name="keywords" content="3D Billboard, India, AdTech, Innovation, The Ad Project" />
+        <meta property="og:title" content="How 3D Billboards Are Revolutionizing Brand Engagement in 2025" />
+        <meta property="og:description" content="Explore how The Ad Project powers India's next-gen 3D billboard campaigns with immersive media and AI planning." />
+        <meta property="og:image" content="https://adproject.in/preview.jpg" />
+        <meta property="og:url" content="https://adproject.in/3d-billboards" />
+        <meta name="keywords" content="3D Billboards India, Out-of-Home Advertising, AR Ads, The Ad Project, Brand Engagement, Immersive Ads 2025" />
+        <link rel="canonical" href="https://adproject.in/3d-billboards" />
       </Helmet>
 
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">
-          🚀 The Rise of 3D Billboards in India
-        </h1>
+      <article className="max-w-4xl mx-auto px-4 py-12 bg-gray-900 rounded-xl shadow-lg">
+        <header>
+          <h1 className="text-4xl font-bold mb-6 text-primary">
+            How 3D Billboards Are Revolutionizing Brand Engagement in 2025
+          </h1>
+        </header>
 
-        <div
-          ref={mountRef}
-          style={{ width: "100%", height: "400px", borderRadius: "12px", overflow: "hidden" }}
-          className="mb-6 shadow-xl bg-black"
-        />
+        <p className="mb-4">
+          In 2025, 3D billboards have become more than just visual spectacles — they're a breakthrough in modern brand engagement.
+          Blending <strong>immersive technology, spatial depth, and high-impact visuals</strong>, they convert streets into story-driven experiences.
+        </p>
 
-        <article className="text-lg leading-relaxed space-y-6">
-          <p>
-            In the heart of India's bustling cities, a new trend is transforming how brands connect
-            with people—3D billboards. These futuristic displays don't just catch your eye; they
-            leap out of the skyline with immersive visuals that make passersby stop and stare.
+        <figure className="my-6">
+          <img
+            src="/3d.gif"
+            alt="Example of 3D Billboard Advertisement in India"
+            className="w-full max-w-xl mx-auto rounded-lg shadow-lg"
+          />
+          <figcaption className="text-sm text-gray-400 text-center mt-2">3D Billboard Animation Example</figcaption>
+        </figure>
+
+        <section>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">🚀 The Rise of 3D Billboards in India</h2>
+          <p className="mb-4">
+            India’s advertising landscape is embracing a new digital frontier with the surge of <strong>3D anamorphic billboards</strong>.
+            These LED marvels reshape viewer attention and create viral moments across major cities like Delhi, Mumbai, and Bengaluru.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">🧠 Why 3D Billboards Work So Well</h2>
+          <p className="mb-4">
+            These displays harness <strong>neuromarketing principles</strong> by tapping into how our brain processes depth, motion, and surprise.
+            Anamorphic illusions trick the eye and boost viewer retention.
+          </p>
+          <ul className="list-disc ml-6 space-y-2">
+            <li><strong>Enhanced Retention:</strong> Viewers remember immersive visuals longer.</li>
+            <li><strong>Online-to-Offline Sync:</strong> Amplifies brand storytelling in public spaces.</li>
+            <li><strong>Premium Brand Image:</strong> Makes your brand stand out as futuristic and engaging.</li>
+            <li><strong>Neuroscience Trigger:</strong> Leverages psychological cues to capture attention.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">🔧 Building a 3D Billboard Campaign</h2>
+          <p className="mb-4">
+            A successful 3D campaign involves expert use of tools like <strong>Blender, Unreal Engine, and After Effects</strong>.
+            Creatives are optimized for screen size, location, ambient light, and audience flow — ensuring maximum visual impact.
+          </p>
+          <p className="mb-4">
+            Advanced campaigns now incorporate <strong>AR scanning, QR interactivity, and programmatic ad triggers</strong> powered by AI.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">📈 Measurable Business Impact</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border border-gray-700">
+              <thead className="bg-gray-800">
+                <tr>
+                  <th className="py-2 px-4 border border-gray-700">Metric</th>
+                  <th className="py-2 px-4 border border-gray-700">Traditional Billboard</th>
+                  <th className="py-2 px-4 border border-gray-700">3D Billboard</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="py-2 px-4 border border-gray-700">Avg. View Time</td>
+                  <td className="py-2 px-4 border border-gray-700">3–5 sec</td>
+                  <td className="py-2 px-4 border border-gray-700">8–12 sec</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border border-gray-700">Engagement Rate</td>
+                  <td className="py-2 px-4 border border-gray-700">Low</td>
+                  <td className="py-2 px-4 border border-gray-700">Very High</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border border-gray-700">Social Shares</td>
+                  <td className="py-2 px-4 border border-gray-700">Rare</td>
+                  <td className="py-2 px-4 border border-gray-700">Viral-worthy</td>
+                </tr>
+                <tr>
+                  <td className="py-2 px-4 border border-gray-700">ROI</td>
+                  <td className="py-2 px-4 border border-gray-700">Moderate</td>
+                  <td className="py-2 px-4 border border-gray-700">High</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mt-8 mb-4">🌐 The Ad Project: India's 3D Ad Platform</h2>
+          <p className="mb-4">
+            <strong>The Ad Project</strong> enables building owners and brands to participate in India's 3D advertising revolution.
+            With AI tools, immersive media, and a digital-first approach, we help you <strong>plan, preview, launch, and measure</strong> outdoor campaigns with precision.
+          </p>
+          <p className="mb-6">
+            From local walls to mega hoardings, our platform transforms every space into an opportunity for viral brand storytelling.
           </p>
 
-          <p>
-            While traditional hoardings remain dominant, 3D billboard technology adds a dynamic
-            twist. By using light, shadow, and illusion, they give the impression that objects are
-            moving or floating outside the screen. Brands now have the power to deliver memorable
-            experiences in real space—on highways, malls, or city intersections.
-          </p>
-
-          <p>
-            But there's a catch: not everyone has access to this cutting-edge tech. That's where{" "}
-            <strong>The Ad Project</strong> is changing the game. We're democratizing 3D outdoor
-            advertising across India—bringing these experiences not just to megacities but also to
-            Tier II and Tier III towns.
-          </p>
-
-          <p>
-            With our centralized platform, brands can now book 3D-enabled billboard spaces
-            remotely, preview their ad creatives in real-time, and use data insights to measure
-            engagement. We're also working with space owners to install 3D-compatible screens and
-            train local technicians—creating a new digital infrastructure for India’s physical ad
-            world.
-          </p>
-
-          <p>
-            Our goal is to empower brands with immersive storytelling and help Indian cities shine
-            with innovative, interactive advertising. 3D billboards are just the beginning.
-          </p>
-
-          <p className="font-semibold text-xl">
-            The future of physical ads is immersive—and The Ad Project is building it.
-          </p>
-        </article>
-      </div>
-    </div>
+          <a
+            href="https://adproject.in"
+            className="inline-block bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-opacity-80"
+          >
+            Start Your 3D Campaign Today »
+          </a>
+        </section>
+      </article>
+    </main>
   );
 };
 
