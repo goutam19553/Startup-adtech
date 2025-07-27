@@ -3,7 +3,7 @@ import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -21,16 +21,15 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AdSpaceUpload = lazy(() => import("./pages/AdSpaceUpload"));
 const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage"));
 
-// Blog components
+// Blog pages
 const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
 const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
 
 const queryClient = new QueryClient();
 
-// ... [keep all your existing section components] ...
-
 const App = () => {
   useEffect(() => {
+    // Enable dark mode by default
     document.documentElement.classList.add("dark");
   }, []);
 
@@ -41,7 +40,7 @@ const App = () => {
         <BrowserRouter>
           <ScrollToTop />
           <DesktopNotice />
-          <div className="flex flex-col min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
+          <div className="flex flex-col min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white transition-colors duration-300">
             <Navbar />
             <main className="flex-grow">
               <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
@@ -60,6 +59,7 @@ const App = () => {
                   <Route path="/blog" element={<BlogIndex />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
 
+                  {/* Catch-all for unknown routes */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
