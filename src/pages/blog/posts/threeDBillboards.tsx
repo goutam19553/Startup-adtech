@@ -35,7 +35,7 @@ const ThreeDBillboards = () => {
                 "name": "The Ad Project",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://adproject.in/logo.png"
+                  "url": "https://adproject.in/logo.jpeg"
                 }
               },
               "datePublished": "2025-07-27",
