@@ -2,8 +2,8 @@ import React from "react";
 
 const BlogPost = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-      <div className="max-w-4xl mx-auto px-4 py-12 text-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-800 via-gray-900 to-gray-900 text-gray-100">
+      <div className="max-w-4xl mx-auto px-4 py-12 bg-gray-900 rounded-xl shadow-lg">
         <h1 className="text-4xl font-bold mb-6 text-primary">
           How 3D Billboards Are Revolutionizing Brand Engagement in 2025
         </h1>
