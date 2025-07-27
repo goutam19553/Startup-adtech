@@ -1,178 +1,106 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Target, Smartphone, BarChart2, Leaf, ArrowRight } from 'lucide-react';
+import React from "react";
 
-type PostMeta = {
-  title: string;
-  description: string;
-  date: string;
-  category?: string;
-  featuredImage?: string;
-};
-
-export default function BlogPost() {
-  const { slug } = useParams();
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [postMeta, setPostMeta] = useState<PostMeta | null>(null);
-
-  useEffect(() => {
-    async function loadPost() {
-      try {
-        const response = await fetch(`/posts/${slug}.md`);
-        const text = await response.text();
-        const { data, content } = parseFrontmatter(text);
-        
-        setPostMeta(data as PostMeta);
-        setContent(content);
-      } catch (error) {
-        console.error("Error loading blog post:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadPost();
-  }, [slug]);
-
-  if (loading) {
-    return <div className="text-center py-20">Loading post...</div>;
-  }
-
-  if (!postMeta) {
-    return <div className="text-center py-20">Post not found</div>;
-  }
-
-  // Custom components for ReactMarkdown
-  const components = {
-    img: ({ node, ...props }) => (
-      <figure className="my-8 rounded-xl overflow-hidden shadow-lg">
-        <img {...props} className="w-full" />
-        {props.alt && (
-          <figcaption className="text-center mt-2 text-sm text-gray-500 dark:text-gray-400">
-            {props.alt}
-          </figcaption>
-        )}
-      </figure>
-    ),
-    h2: ({ node, ...props }) => (
-      <h2 className="text-2xl font-bold mt-12 mb-6 dark:text-white" {...props} />
-    ),
-    h3: ({ node, ...props }) => (
-      <h3 className="text-xl font-semibold mt-8 mb-4 dark:text-white" {...props} />
-    ),
-    p: ({ node, ...props }) => (
-      <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed" {...props} />
-    ),
-    strong: ({ node, ...props }) => (
-      <strong className="font-semibold text-gray-900 dark:text-white" {...props} />
-    )
-  };
-
+const BlogPost = () => {
   return (
-    <div className="max-w-7xl mx-auto">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-bharat-navy to-bharat-navy/90 py-20 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-heading font-extrabold mb-6">
-            {postMeta.title}
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
-            {postMeta.description}
-          </p>
-        </div>
+    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-100">
+      <h1 className="text-4xl font-bold mb-6 text-primary">How 3D Billboards Are Revolutionizing Brand Engagement in 2025</h1>
+      <p className="mb-4">
+        In 2025, 3D billboards are no longer a futuristic concept — they are a
+        <strong> reality transforming how brands engage with audiences in India and around the globe</strong>.
+        From Times Square-style motion billboards in Mumbai to interactive hoardings in Bengaluru,
+        3D Out-of-Home (OOH) advertising is grabbing attention like never before.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">🚀 The Rise of 3D Billboards in India</h2>
+      <p className="mb-4">
+        Traditional billboard advertising has long been a trusted medium — visible, impactful, and
+        cost-effective. However, as consumer attention spans shrink and digital experiences dominate,
+        <strong> brands need more immersive and memorable formats</strong>.
+      </p>
+      <p className="mb-4">
+        Enter <strong>3D anamorphic billboards</strong> — eye-catching, hyper-realistic visuals that appear to
+        pop out of the screen. These billboards create depth perception without requiring 3D glasses,
+        combining art, animation, and technology.
+      </p>
+      <p className="mb-4">
+        In India, cities like Delhi, Mumbai, and Hyderabad are rapidly adopting this format in malls,
+        junctions, airports, and highways.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">🧠 Why 3D Billboards Work So Well</h2>
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Higher Retention:</strong> 3D visuals are 2x more memorable than flat designs.</li>
+        <li><strong>Social Virality:</strong> Audiences stop, record, and share these experiences on social media.</li>
+        <li><strong>Brand Perception:</strong> Associated with premium and innovative brands.</li>
+        <li><strong>Foot Traffic Influence:</strong> Boost footfall by up to 25% in retail zones.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">🏙 Real-World Examples in India</h2>
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Samsung Galaxy Flip in Mumbai:</strong> Showcased a phone flipping open in Bandra.</li>
+        <li><strong>Netflix’s AR+3D combo in Delhi:</strong> Merged 3D visuals with mobile AR QR filters.</li>
+        <li><strong>The Ad Project’s 3D Demo in Bengaluru:</strong> Preview tools to test 3D hoardings before booking.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">🔧 How Your Brand Can Leverage 3D Ads</h2>
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Preview Before You Buy:</strong> Visualize your ads in 3D on real Indian streets.</li>
+        <li><strong>Pan-India Availability:</strong> Access verified ad spaces across metro and tier-2 cities.</li>
+        <li><strong>AR-Enhanced Engagement:</strong> QR-based AR boosts user interaction.</li>
+        <li><strong>Eco-Friendly:</strong> Promotes sustainable digital fabric over plastic-based banners.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">📈 The Business Impact</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border border-gray-300 dark:border-gray-700">
+          <thead className="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th className="py-2 px-4 border">Metric</th>
+              <th className="py-2 px-4 border">Traditional Billboard</th>
+              <th className="py-2 px-4 border">3D Billboard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="py-2 px-4 border">Avg. View Time</td>
+              <td className="py-2 px-4 border">3–5 sec</td>
+              <td className="py-2 px-4 border">8–12 sec</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">Engagement Rate</td>
+              <td className="py-2 px-4 border">Low</td>
+              <td className="py-2 px-4 border">Very High</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">Social Shares</td>
+              <td className="py-2 px-4 border">Rare</td>
+              <td className="py-2 px-4 border">Viral-worthy</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">ROI</td>
+              <td className="py-2 px-4 border">Moderate</td>
+              <td className="py-2 px-4 border">High</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-6 py-12 bg-white dark:bg-gray-900">
-        {/* Render Markdown content */}
-        <ReactMarkdown 
-          components={components}
-          remarkPlugins={[remarkGfm]}
-        >
-          {content}
-        </ReactMarkdown>
-
-        {/* Special 3D Billboard Sections */}
-        {slug === '3d-billboards-revolution' && (
-          <>
-            {/* Solutions Section */}
-            <section className="my-16">
-              <h2 className="text-3xl font-heading font-bold mb-8">Our 3D Billboard Solutions</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  { icon: '🌀', title: 'Anamorphic 3D', desc: 'Depth illusions perfect for high-traffic locations' },
-                  { icon: '🤝', title: 'Interactive AR', desc: 'QR codes unlock bonus content for engagement' },
-                  { icon: '✨', title: 'Holographic', desc: 'Floating visuals for luxury brand launches' }
-                ].map((item, i) => (
-                  <div key={i} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                    <div className="text-4xl mb-4">{item.icon}</div>
-                    <h3 className="text-xl font-heading font-bold mb-3">{item.title}</h3>
-                    <p className="text-gray-700 dark:text-gray-300">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Advantages Section */}
-            <section className="my-16">
-              <h2 className="text-3xl font-heading font-bold mb-8">The Ad Project Advantage</h2>
-              <div className="bg-gradient-to-r from-bharat-navy/5 to-bharat-teal/5 dark:from-gray-800 p-8 rounded-2xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    { icon: <Target className="h-5 w-5 text-bharat-saffron" />, title: 'AI-Powered Targeting' },
-                    { icon: <Smartphone className="h-5 w-5 text-bharat-saffron" />, title: 'AR Integrations' },
-                    { icon: <BarChart2 className="h-5 w-5 text-bharat-saffron" />, title: 'Real-Time Analytics' },
-                    { icon: <Leaf className="h-5 w-5 text-bharat-saffron" />, title: 'Eco-Conscious Materials' }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="bg-bharat-saffron/20 p-2 rounded-full mt-1">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-heading font-semibold">{item.title}</h4>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* CTA Section */}
-            <div className="text-center mt-16">
-              <a
-                href="/contact"
-                className="inline-block px-8 py-4 text-lg font-semibold rounded-md shadow-lg hover:shadow-xl transition-all bg-bharat-saffron text-white"
-              >
-                Schedule Your 3D Demo Today
-                <ArrowRight className="inline ml-2 h-5 w-5" />
-              </a>
-            </div>
-          </>
-        )}
-      </div>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">🌐 The Future Is Now</h2>
+      <p className="mb-6">
+        3D billboards are more than just a trend — they’re a signal of where outdoor marketing is headed.
+        In an increasingly cluttered media world, <strong>the brands that stand out are the ones that leap off the wall — literally</strong>.
+      </p>
+      <p className="mb-4">
+        If you're ready to bring your brand to life in India’s most iconic spaces, let <strong>The Ad Project</strong> be your partner.
+      </p>
+      <a
+        href="https://adproject.in"
+        className="inline-block bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-opacity-80"
+      >
+        Start Your Campaign Today »
+      </a>
     </div>
   );
-}
+};
 
-function parseFrontmatter(text: string) {
-  const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)/;
-  const match = text.match(frontmatterRegex);
-  
-  if (!match) return { data: {}, content: text };
-
-  const frontmatter = match[1];
-  const content = match[2];
-
-  const data = frontmatter.split('\n').reduce((acc, line) => {
-    const [key, ...value] = line.split(':');
-    if (key && value) {
-      acc[key.trim()] = value.join(':').trim().replace(/^['"]|['"]$/g, '');
-    }
-    return acc;
-  }, {} as Record<string, string>);
-
-  return { data, content };
-}
+export default BlogPost;
