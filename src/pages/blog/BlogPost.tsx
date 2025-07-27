@@ -1,104 +1,88 @@
-import React from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const BlogPost = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-100">
-      <h1 className="text-4xl font-bold mb-6 text-primary">How 3D Billboards Are Revolutionizing Brand Engagement in 2025</h1>
-      <p className="mb-4">
-        In 2025, 3D billboards are no longer a futuristic concept — they are a
-        <strong> reality transforming how brands engage with audiences in India and around the globe</strong>.
-        From Times Square-style motion billboards in Mumbai to interactive hoardings in Bengaluru,
-        3D Out-of-Home (OOH) advertising is grabbing attention like never before.
-      </p>
+    <div className="bg-white dark:bg-gray-900 py-24 transition-colors duration-300">
+      <Helmet>
+        <title>How 3D Billboards Are Revolutionizing Brand Engagement in 2025 | Bharat-Ad</title>
+        <meta
+          name="description"
+          content="Explore how 3D billboards are reshaping outdoor advertising in India, boosting engagement and redefining consumer experience in 2025."
+        />
+      </Helmet>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">🚀 The Rise of 3D Billboards in India</h2>
-      <p className="mb-4">
-        Traditional billboard advertising has long been a trusted medium — visible, impactful, and
-        cost-effective. However, as consumer attention spans shrink and digital experiences dominate,
-        <strong> brands need more immersive and memorable formats</strong>.
-      </p>
-      <p className="mb-4">
-        Enter <strong>3D anamorphic billboards</strong> — eye-catching, hyper-realistic visuals that appear to
-        pop out of the screen. These billboards create depth perception without requiring 3D glasses,
-        combining art, animation, and technology.
-      </p>
-      <p className="mb-4">
-        In India, cities like Delhi, Mumbai, and Hyderabad are rapidly adopting this format in malls,
-        junctions, airports, and highways.
-      </p>
+      <div className="container-custom max-w-4xl mx-auto px-6">
+        <h1 className="text-4xl md:text-5xl font-heading font-extrabold mb-4 text-gray-900 dark:text-white">
+          How 3D Billboards Are Revolutionizing Brand Engagement in 2025
+        </h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">Published on July 26, 2025</p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">🧠 Why 3D Billboards Work So Well</h2>
-      <ul className="list-disc ml-6 space-y-2">
-        <li><strong>Higher Retention:</strong> 3D visuals are 2x more memorable than flat designs.</li>
-        <li><strong>Social Virality:</strong> Audiences stop, record, and share these experiences on social media.</li>
-        <li><strong>Brand Perception:</strong> Associated with premium and innovative brands.</li>
-        <li><strong>Foot Traffic Influence:</strong> Boost footfall by up to 25% in retail zones.</li>
-      </ul>
+        <img
+          src="/blog/assets/3d-billboard-demo.png"
+          alt="3D Billboard in Indian city"
+          className="rounded-2xl shadow-xl mb-10 w-full object-cover"
+        />
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">🏙 Real-World Examples in India</h2>
-      <ul className="list-disc ml-6 space-y-2">
-        <li><strong>Samsung Galaxy Flip in Mumbai:</strong> Showcased a phone flipping open in Bandra.</li>
-        <li><strong>Netflix’s AR+3D combo in Delhi:</strong> Merged 3D visuals with mobile AR QR filters.</li>
-        <li><strong>The Ad Project’s 3D Demo in Bengaluru:</strong> Preview tools to test 3D hoardings before booking.</li>
-      </ul>
+        <div className="space-y-6 text-lg text-gray-800 dark:text-gray-300 leading-relaxed">
+          <p>
+            In 2025, India’s advertising landscape is undergoing a dramatic shift with the rise of 3D billboards. These futuristic
+            advertising structures combine motion, depth, and realism to captivate viewers in ways traditional hoardings simply
+            can’t. From Times Square-style installations in Bengaluru to hyper-real motion displays in Mumbai, the ad game is
+            evolving fast.
+          </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">🔧 How Your Brand Can Leverage 3D Ads</h2>
-      <ul className="list-disc ml-6 space-y-2">
-        <li><strong>Preview Before You Buy:</strong> Visualize your ads in 3D on real Indian streets.</li>
-        <li><strong>Pan-India Availability:</strong> Access verified ad spaces across metro and tier-2 cities.</li>
-        <li><strong>AR-Enhanced Engagement:</strong> QR-based AR boosts user interaction.</li>
-        <li><strong>Eco-Friendly:</strong> Promotes sustainable digital fabric over plastic-based banners.</li>
-      </ul>
+          <h2 className="text-2xl font-heading font-semibold text-bharat-saffron">Why 3D Billboards Work</h2>
+          <p>
+            3D billboards create a sense of depth and movement that pulls people in — literally stopping them in their tracks.
+            Studies show viewers are over 4x more likely to engage with 3D ads versus flat visuals. The immersive nature taps into
+            our brain’s curiosity, making brands far more memorable.
+          </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">📈 The Business Impact</h2>
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border border-gray-300 dark:border-gray-700">
-          <thead className="bg-gray-100 dark:bg-gray-800">
-            <tr>
-              <th className="py-2 px-4 border">Metric</th>
-              <th className="py-2 px-4 border">Traditional Billboard</th>
-              <th className="py-2 px-4 border">3D Billboard</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="py-2 px-4 border">Avg. View Time</td>
-              <td className="py-2 px-4 border">3–5 sec</td>
-              <td className="py-2 px-4 border">8–12 sec</td>
-            </tr>
-            <tr>
-              <td className="py-2 px-4 border">Engagement Rate</td>
-              <td className="py-2 px-4 border">Low</td>
-              <td className="py-2 px-4 border">Very High</td>
-            </tr>
-            <tr>
-              <td className="py-2 px-4 border">Social Shares</td>
-              <td className="py-2 px-4 border">Rare</td>
-              <td className="py-2 px-4 border">Viral-worthy</td>
-            </tr>
-            <tr>
-              <td className="py-2 px-4 border">ROI</td>
-              <td className="py-2 px-4 border">Moderate</td>
-              <td className="py-2 px-4 border">High</td>
-            </tr>
-          </tbody>
-        </table>
+          <h2 className="text-2xl font-heading font-semibold text-bharat-saffron">Real Impact in Indian Cities</h2>
+          <p>
+            Cities like Hyderabad, Pune, and Delhi are already seeing this shift. Brands launching smartphones, EVs, or OTT shows
+            are using animated 3D billboards at malls, intersections, and flyovers. These not only grab attention but fuel viral
+            social media content organically.
+          </p>
+
+          <h2 className="text-2xl font-heading font-semibold text-bharat-saffron">Eco-Friendly & High ROI</h2>
+          <p>
+            Surprisingly, most 3D billboards use energy-efficient LEDs and recyclable structures. They remove recurring print
+            costs, while delivering higher engagement per rupee. A win for the planet — and your budget.
+          </p>
+
+          <h2 className="text-2xl font-heading font-semibold text-bharat-saffron">The Role of Bharat-Ad</h2>
+          <p>
+            At{" "}
+            <Link to="/" className="text-bharat-saffron underline hover:text-bharat-teal transition">
+              Bharat-Ad
+            </Link>
+            , we empower brands to go 3D effortlessly. From city permits to tech setup, our team handles it all. Our AI tools even
+            simulate your billboard in live locations using AR, so you can preview your impact before launch.
+          </p>
+
+          <blockquote className="border-l-4 border-bharat-saffron pl-6 italic text-gray-600 dark:text-gray-400 my-8">
+            “Advertising is no longer static. It's a living, breathing part of the environment — and 3D billboards are leading that
+            transformation.”
+          </blockquote>
+
+          <h2 className="text-2xl font-heading font-semibold text-bharat-saffron">What’s Next?</h2>
+          <p>
+            The future of billboard advertising is interactive. Imagine 3D ads that respond to gestures, voice, or deliver AR
+            coupons via QR scans. In India’s fast-growing ad-tech space, the brands who move now will lead tomorrow.
+          </p>
+
+          <div className="pt-10">
+            <Link
+              to="/blog"
+              className="inline-block text-bharat-teal font-medium hover:underline hover:text-bharat-saffron transition"
+            >
+              ← Back to Blog
+            </Link>
+          </div>
+        </div>
       </div>
-
-      <h2 className="text-2xl font-semibold mt-8 mb-4">🌐 The Future Is Now</h2>
-      <p className="mb-6">
-        3D billboards are more than just a trend — they’re a signal of where outdoor marketing is headed.
-        In an increasingly cluttered media world, <strong>the brands that stand out are the ones that leap off the wall — literally</strong>.
-      </p>
-      <p className="mb-4">
-        If you're ready to bring your brand to life in India’s most iconic spaces, let <strong>The Ad Project</strong> be your partner.
-      </p>
-      <a
-        href="https://adproject.in"
-        className="inline-block bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-opacity-80"
-      >
-        Start Your Campaign Today »
-      </a>
     </div>
   );
 };
