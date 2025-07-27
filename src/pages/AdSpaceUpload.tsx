@@ -39,7 +39,7 @@ const EarnMoneySection = () => {
           You can earn money by simply uploading your wall spaces. Advertisers will pay to place ads on your walls, allowing you to earn a passive income from your property. It's that simple!
         </p>
         <button
-          onClick={() => navigate("/ad-space-upload")}
+          onClick={() => navigate("/ad-space-upload")} 
           className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black text-lg font-semibold rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pulse"
         >
           Upload Now
