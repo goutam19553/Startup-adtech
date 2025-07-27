@@ -2,7 +2,7 @@ import React from "react";
 
 const BlogPost = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-100">
+    <div className="max-w-4xl mx-auto px-4 py-12 bg-gray-900 text-gray-100">
       <h1 className="text-4xl font-bold mb-6 text-primary">How 3D Billboards Are Revolutionizing Brand Engagement in 2025</h1>
       <p className="mb-4">
         In 2025, 3D billboards are no longer a futuristic concept — they are a
@@ -10,6 +10,15 @@ const BlogPost = () => {
         From Times Square-style motion billboards in Mumbai to interactive hoardings in Bengaluru,
         3D Out-of-Home (OOH) advertising is grabbing attention like never before.
       </p>
+
+      {/* 🎬 3D GIF Section */}
+      <div className="my-6">
+        <img
+          src="/3d.gif"
+          alt="3D Billboard Animation"
+          className="w-full max-w-xl mx-auto rounded-lg shadow-lg"
+        />
+      </div>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">🚀 The Rise of 3D Billboards in India</h2>
       <p className="mb-4">
@@ -52,34 +61,34 @@ const BlogPost = () => {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4">📈 The Business Impact</h2>
       <div className="overflow-x-auto">
-        <table className="w-full text-left border border-gray-300 dark:border-gray-700">
-          <thead className="bg-gray-100 dark:bg-gray-800">
+        <table className="w-full text-left border border-gray-700">
+          <thead className="bg-gray-800">
             <tr>
-              <th className="py-2 px-4 border">Metric</th>
-              <th className="py-2 px-4 border">Traditional Billboard</th>
-              <th className="py-2 px-4 border">3D Billboard</th>
+              <th className="py-2 px-4 border border-gray-700">Metric</th>
+              <th className="py-2 px-4 border border-gray-700">Traditional Billboard</th>
+              <th className="py-2 px-4 border border-gray-700">3D Billboard</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="py-2 px-4 border">Avg. View Time</td>
-              <td className="py-2 px-4 border">3–5 sec</td>
-              <td className="py-2 px-4 border">8–12 sec</td>
+              <td className="py-2 px-4 border border-gray-700">Avg. View Time</td>
+              <td className="py-2 px-4 border border-gray-700">3–5 sec</td>
+              <td className="py-2 px-4 border border-gray-700">8–12 sec</td>
             </tr>
             <tr>
-              <td className="py-2 px-4 border">Engagement Rate</td>
-              <td className="py-2 px-4 border">Low</td>
-              <td className="py-2 px-4 border">Very High</td>
+              <td className="py-2 px-4 border border-gray-700">Engagement Rate</td>
+              <td className="py-2 px-4 border border-gray-700">Low</td>
+              <td className="py-2 px-4 border border-gray-700">Very High</td>
             </tr>
             <tr>
-              <td className="py-2 px-4 border">Social Shares</td>
-              <td className="py-2 px-4 border">Rare</td>
-              <td className="py-2 px-4 border">Viral-worthy</td>
+              <td className="py-2 px-4 border border-gray-700">Social Shares</td>
+              <td className="py-2 px-4 border border-gray-700">Rare</td>
+              <td className="py-2 px-4 border border-gray-700">Viral-worthy</td>
             </tr>
             <tr>
-              <td className="py-2 px-4 border">ROI</td>
-              <td className="py-2 px-4 border">Moderate</td>
-              <td className="py-2 px-4 border">High</td>
+              <td className="py-2 px-4 border border-gray-700">ROI</td>
+              <td className="py-2 px-4 border border-gray-700">Moderate</td>
+              <td className="py-2 px-4 border border-gray-700">High</td>
             </tr>
           </tbody>
         </table>
