@@ -18,7 +18,6 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const WallUpload = lazy(() => import("./pages/WallUpload"));
-const AdSpaceUpload = lazy(() => import("./pages/AdSpaceUpload"));
 const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage"));
 
 // Blog pages
@@ -27,7 +26,6 @@ const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
 
 const queryClient = new QueryClient();
 
-// 👇 Create the "Earn Money" section as a separate component
 const EarnMoneySection = () => {
   const navigate = useNavigate();
 
@@ -41,7 +39,7 @@ const EarnMoneySection = () => {
           You can earn money by simply uploading your wall spaces. Advertisers will pay to place ads on your walls, allowing you to earn a passive income from your property. It's that simple!
         </p>
         <button
-          onClick={() => navigate("/wall-upload")} 
+          onClick={() => navigate("/wall-upload")}
           className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black text-lg font-semibold rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pulse"
         >
           Upload Now
@@ -51,7 +49,6 @@ const EarnMoneySection = () => {
   );
 };
 
-// 👇 Updated "Government Support" section
 const GovernmentSupportSection = () => {
   const navigate = useNavigate();
 
@@ -81,7 +78,6 @@ const GovernmentSupportSection = () => {
 
 const App = () => {
   useEffect(() => {
-    // Enable dark mode by default
     document.documentElement.classList.add("dark");
   }, []);
 
@@ -99,29 +95,24 @@ const App = () => {
                 <Routes>
                   <Route
                     path="/"
-                    element={(
+                    element={
                       <>
-                        <Index />          
+                        <Index />
                         <EarnMoneySection />
                         <GovernmentSupportSection />
                       </>
-                    )}
+                    }
                   />
                   <Route path="/ad-space-owners" element={<AdSpaceOwners />} />
                   <Route path="/ad-spaces" element={<AdSpaces />} />
                   <Route path="/ai-analytics" element={<AIAnalytics />} />
                   <Route path="/advertisers" element={<Advertisers />} />
                   <Route path="/wall-upload" element={<WallUpload />} />
-                  <Route path="/ad-space-upload" element={<AdSpaceUpload />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/government-support" element={<GovernmentSupportPage />} />
-
-                  {/* Blog Routes */}
                   <Route path="/blog" element={<BlogIndex />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
-
-                  {/* Catch-all for unknown routes */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
