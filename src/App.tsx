@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 import AIAnalytics from "./pages/AIAnalytics";
-import DesktopNotice from "./components/DesktopNotice"; // ✅ NEW
+import DesktopNotice from "./components/DesktopNotice";
 
 // Lazy-loaded pages
 const AdSpaces = lazy(() => import("./pages/AdSpaces"));
@@ -19,15 +19,13 @@ const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const WallUpload = lazy(() => import("./pages/WallUpload"));
 const GovernmentSupportPage = lazy(() => import("./pages/GovernmentSupportPage"));
-const BlogIndex = lazy(() => import("./pages/blog/BlogIndex")); // ✅ NEW
-const BlogPost = lazy(() => import("./pages/blog/BlogPost"));   // ✅ NEW
+const BlogIndex = lazy(() => import("./pages/blog/BlogIndex"));
+const BlogPost = lazy(() => import("./pages/blog/BlogPost"));
 
 const queryClient = new QueryClient();
 
-// 👇 Create the "Earn Money" section as a separate component
 const EarnMoneySection = () => {
   const navigate = useNavigate();
-
   return (
     <section className="earn-money-section text-center bg-white dark:bg-gray-900 py-20 px-6 overflow-hidden mb-0">
       <div className="relative z-10 max-w-3xl mx-auto text-center">
@@ -38,7 +36,7 @@ const EarnMoneySection = () => {
           You can earn money by simply uploading your wall spaces. Advertisers will pay to place ads on your walls, allowing you to earn a passive income from your property. It's that simple!
         </p>
         <button
-          onClick={() => navigate("/wall-upload")} 
+          onClick={() => navigate("/wall-upload")}
           className="px-8 py-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black text-lg font-semibold rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pulse"
         >
           Upload Now
@@ -48,10 +46,8 @@ const EarnMoneySection = () => {
   );
 };
 
-// 👇 Updated "Government Support" section
 const GovernmentSupportSection = () => {
   const navigate = useNavigate();
-
   return (
     <section className="px-6 dark:bg-gray-900 py-20 overflow-hidden mt-0">
       <div className="bg-[#1B3A4B] text-white rounded-xl shadow-lg px-6 py-10 md:flex md:items-center md:justify-between">
@@ -88,7 +84,6 @@ const App = () => {
         <BrowserRouter>
           <ScrollToTop />
           <DesktopNotice />
-          <div className="flex flex-col min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
           <div className="flex flex-col min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white transition-colors duration-300">
             <Navbar />
             <main className="flex-grow">
@@ -112,12 +107,8 @@ const App = () => {
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/government-support" element={<GovernmentSupportPage />} />
-
-                  {/* ✅ BLOG ROUTES */}
                   <Route path="/blog" element={<BlogIndex />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
-
-                  {/* ✅ CATCH-ALL */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
