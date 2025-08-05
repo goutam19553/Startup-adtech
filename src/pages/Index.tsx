@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import AdSpaceCard, { AdSpaceProps } from "@/components/AdSpaceCard";
 import AIDesignDemo from "@/components/AIDesignDemo";
 import FootTrafficDemo from "@/components/FootTrafficDemo";
-import BrandSlider from "@/components/BrandSlider";
 import { Sparkles, BarChart, Radar, Eye, Move3D, MapPin, Zap, TrendingUp, Award, Building, Star, X, ChevronLeft, ChevronRight } from "lucide-react";
 import HowItWorks from "@/components/HowItWorks";
 import Clarity from '@microsoft/clarity';
@@ -810,9 +809,7 @@ const Index = () => {
     </div>
 
    
-    {/* Brands Slider */}
-    <BrandSlider />
-  </div>
+    
 );
 }
 
