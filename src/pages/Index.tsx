@@ -154,7 +154,7 @@ const Index = () => {
         "Hyper-Accurate Tracking: Get count-level precision and behavioral heatmaps to identify where and when your ads perform best.",
         "AR Activation Ready: Trigger immersive AR experiences when people scan your hoardings or kiosks—capturing attention instantly."
       ],
-      image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/main/public/wev (1).jpg"
+      image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/main/public/wev%20(1).jpg"
     },
     {
       title: "Campaign Analytics",
@@ -168,7 +168,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     },
     {
-      title: "Real-Time Optimisation",
+      title: "Real-Time Optimization",
       icon: <Eye className="text-bharat-saffron" size={32} />,
       description: "Access campaign ROI in real-time, monitor shifts in audience patterns, and adjust instantly—remotely.",
       features: [
@@ -300,6 +300,8 @@ const Index = () => {
     const scale = 1 - Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 0.15;
     const opacity = 1 - Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 0.3;
     const yOffset = Math.pow(distanceFromCenter - Math.floor(totalItems / 2), 2) * 10;
+    const blur = Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 2;
+    const isCenter = distanceFromCenter === 0;
     
     return { 
       angle, 
@@ -308,8 +310,8 @@ const Index = () => {
       opacity, 
       distanceFromCenter,
       yOffset,
-      blur: isCenter ? 0 : Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 2,
-      isCenter: distanceFromCenter === 0
+      blur,
+      isCenter
     };
   };
 
