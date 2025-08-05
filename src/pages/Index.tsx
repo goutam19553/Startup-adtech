@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Hero from "@/components/Hero";
@@ -10,7 +10,9 @@ import { Sparkles, BarChart, Radar, Eye, Move3D, MapPin, Zap, TrendingUp, Award,
 import HowItWorks from "@/components/HowItWorks";
 import Clarity from '@microsoft/clarity';
 
-Clarity.init("sktmgrywcg");
+Clarity.init("sktmgrywcg"); // 🔁 
+
+
 
 // Animation variants
 const fadeInUp: Variants = {
@@ -39,6 +41,8 @@ const floatAnimation = {
   },
 };
 
+
+
 // Ad spaces data
 const featuredAdSpaces: AdSpaceProps[] = [
   {
@@ -46,33 +50,24 @@ const featuredAdSpaces: AdSpaceProps[] = [
     title: "Indian Cricket Stadium",
     type: "Stadium",
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/refs/heads/main/public/ps%2022.jpg",
-    rating: 4.8,
+    rating: 4,
     featured: true,
-    impressions: "2M+ monthly",
-    price: "₹5L/week",
-    location: "Mumbai"
   },
   {
     id: 2,
-    title: "Times Square Billboard",
-    type: "Digital Billboard",
+    title: "Promotional Space",
+    type: "Space Ad",
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/refs/heads/main/public/ps%201.avif",
-    rating: 4.5,
+    rating: 4,
     featured: true,
-    impressions: "500K daily",
-    price: "₹8L/week",
-    location: "Delhi"
   },
   {
     id: 3,
     title: "Exterior Train Branding",
-    type: "Transit Media",
+    type: "Transit",
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/refs/heads/main/public/ps3.avif",
-    rating: 4.2,
+    rating: 4,
     featured: true,
-    impressions: "1.5M monthly",
-    price: "₹3L/week",
-    location: "Pan-India"
   },
   {
     id: 4,
@@ -81,31 +76,22 @@ const featuredAdSpaces: AdSpaceProps[] = [
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/main/public/waterdemo.png",
     rating: 4.7,
     featured: true,
-    impressions: "10M+ monthly",
-    price: "₹2.5L/week",
-    location: "National"
   },
   {
     id: 5,
     title: "Drone Advertising",
-    type: "Digital LED Drones",
+    type: "Digital LED Flying Drones",
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/refs/heads/main/public/Annotation%202025-04-24%20164050.png",
-    rating: 4.9,
+    rating: 4,
     featured: true,
-    impressions: "Custom",
-    price: "₹15L/event",
-    location: "Major Cities"
   },
   {
     id: 6,
     title: "Metro Station Panels",
-    type: "Transit Media",
+    type: "Transit",
     image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/refs/heads/main/public/Annotation%202025-04-24%20171619.png",
-    rating: 4.3,
+    rating: 4,
     featured: true,
-    impressions: "3M+ monthly",
-    price: "₹4L/week",
-    location: "Metro Cities"
   },
 ];
 
@@ -154,7 +140,7 @@ const Index = () => {
         "Hyper-Accurate Tracking: Get count-level precision and behavioral heatmaps to identify where and when your ads perform best.",
         "AR Activation Ready: Trigger immersive AR experiences when people scan your hoardings or kiosks—capturing attention instantly."
       ],
-      image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/main/public/wev%20(1).jpg"
+      image: "https://raw.githubusercontent.com/goutam19553/Startup-adtech/main/public/wev (1).jpg"
     },
     {
       title: "Campaign Analytics",
@@ -168,7 +154,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
     },
     {
-      title: "Real-Time Optimization",
+      title: "Real-Time Optimisation",
       icon: <Eye className="text-bharat-saffron" size={32} />,
       description: "Access campaign ROI in real-time, monitor shifts in audience patterns, and adjust instantly—remotely.",
       features: [
@@ -259,7 +245,7 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Toggle popup
+  // Toggle popup - UPDATED FUNCTION
   const togglePopup = (adSpace?: AdSpaceProps) => {
     if (adSpace) {
       setSelectedAdSpace(adSpace);
@@ -288,31 +274,21 @@ const Index = () => {
     setTimeout(() => setIsPlaying(true), autoPlayInterval * 2);
   };
 
-  // Calculate 3D curved positions with enhanced effects
+  // Calculate 3D curved positions
   const getCurvedPosition = (index: number) => {
     const totalItems = featuredAdSpaces.length;
     const centerIndex = currentSlide;
     const distanceFromCenter = (index - centerIndex + totalItems) % totalItems;
     
-    // Enhanced 3D calculations
-    const angle = (distanceFromCenter - Math.floor(totalItems / 2)) * 20;
-    const translateZ = -Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 100;
+    // Calculate angle based on position relative to center
+    const angle = (distanceFromCenter - Math.floor(totalItems / 2)) * 15;
+    
+    // Calculate 3D transform values
+    const translateZ = -Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 50;
     const scale = 1 - Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 0.15;
     const opacity = 1 - Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 0.3;
-    const yOffset = Math.pow(distanceFromCenter - Math.floor(totalItems / 2), 2) * 10;
-    const blur = Math.abs(distanceFromCenter - Math.floor(totalItems / 2)) * 2;
-    const isCenter = distanceFromCenter === 0;
     
-    return { 
-      angle, 
-      translateZ, 
-      scale, 
-      opacity, 
-      distanceFromCenter,
-      yOffset,
-      blur,
-      isCenter
-    };
+    return { angle, translateZ, scale, opacity, distanceFromCenter };
   };
 
   return (
@@ -454,7 +430,7 @@ const Index = () => {
         </motion.section>
       ))}
 
-      {/* Featured Ad Spaces - Ultra Smooth 3D Holographic Carousel */}
+      {/* Featured Ad Spaces - Futuristic 3D Curved Carousel */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-gray-200/10 to-transparent dark:via-gray-900/10"></div>
@@ -474,30 +450,31 @@ const Index = () => {
             </p>
           </motion.div>
 
-          {/* Futuristic 3D Holographic Carousel */}
-          <div className="relative h-[700px] w-full perspective-1000 overflow-visible" ref={sliderRef}>
+          {/* Futuristic 3D Curved Carousel */}
+          <div className="relative h-[600px] w-full perspective-1000 overflow-visible" ref={sliderRef}>
             {/* Carousel track with curved layout */}
             <div className="absolute inset-0 flex items-center justify-center">
               {featuredAdSpaces.map((adSpace, index) => {
-                const { angle, translateZ, scale, opacity, distanceFromCenter, yOffset, blur, isCenter } = getCurvedPosition(index);
+                const { angle, translateZ, scale, opacity, distanceFromCenter } = getCurvedPosition(index);
+                const isCenter = distanceFromCenter === 0;
                 
                 return (
                   <motion.div
                     key={adSpace.id}
-                    className={`absolute w-80 h-[500px] rounded-2xl shadow-2xl overflow-hidden border-2 ${
+                    className={`absolute w-72 h-96 rounded-2xl shadow-2xl overflow-hidden border-2 ${
                       isCenter 
                         ? 'border-amber-500/50 dark:border-amber-400/50' 
                         : 'border-gray-200/30 dark:border-gray-700/50'
                     }`}
                     initial={false}
                     animate={{
-                      x: angle * 30,
-                      y: yOffset,
+                      x: angle * 20,
+                      y: Math.abs(angle) * 0.5,
                       z: translateZ,
                       scale,
                       opacity,
                       rotateY: angle,
-                      filter: `blur(${blur}px)`,
+                      filter: isCenter ? 'brightness(1.1)' : 'brightness(0.8)',
                     }}
                     transition={{
                       type: "spring",
@@ -505,10 +482,8 @@ const Index = () => {
                       damping: 20
                     }}
                     whileHover={{
-                      scale: scale * 1.1,
-                      z: translateZ + 50,
-                      filter: "blur(0px)",
-                      boxShadow: isCenter ? "0 0 40px 10px rgba(245,158,11,0.4)" : "0 0 20px 5px rgba(245,158,11,0.2)"
+                      scale: scale * 1.05,
+                      z: translateZ + 20,
                     }}
                     style={{
                       transformStyle: "preserve-3d",
@@ -519,53 +494,38 @@ const Index = () => {
                       {/* Holographic effect */}
                       <div className={`absolute inset-0 ${
                         isCenter 
-                          ? 'bg-gradient-to-br from-amber-500/20 to-blue-500/20' 
-                          : 'bg-gradient-to-br from-gray-500/10 to-gray-700/10'
+                          ? 'bg-gradient-to-br from-amber-500/10 to-blue-500/10' 
+                          : 'bg-gradient-to-br from-gray-500/5 to-gray-700/5'
                       } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                       
                       {/* Glow effect for center card */}
                       {isCenter && (
                         <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                          <div className="absolute inset-0 rounded-2xl bg-amber-500/20 blur-xl animate-pulse"></div>
-                          <div className="absolute inset-0 rounded-2xl shadow-[0_0_40px_15px_rgba(245,158,11,0.4)]"></div>
+                          <div className="absolute inset-0 rounded-2xl bg-amber-500/10 blur-md animate-pulse"></div>
+                          <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_5px_rgba(245,158,11,0.3)]"></div>
                         </div>
                       )}
                       
                       {/* Image with gradient overlay */}
-                      <div className="relative h-60 overflow-hidden">
+                      <div className="relative h-48 overflow-hidden">
                         <img 
                           src={adSpace.image} 
                           alt={adSpace.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                        <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                        <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
                           Featured
                         </div>
                       </div>
                       
                       {/* Card content */}
-                      <div className="p-6 h-[calc(100%-15rem)] flex flex-col bg-white dark:bg-gray-900">
+                      <div className="p-6 h-[calc(100%-12rem)] flex flex-col bg-white dark:bg-gray-900">
                         <div className="flex justify-between items-start mb-3">
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">{adSpace.title}</h3>
                           <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full">
                             {adSpace.type}
                           </span>
-                        </div>
-                        
-                        <div className="mb-4">
-                          <div className="flex items-center text-sm text-gray-600 dark:text-gray-300 mb-1">
-                            <MapPin className="w-4 h-4 mr-1" />
-                            {adSpace.location}
-                          </div>
-                          <div className="flex items-center text-sm text-gray-600 dark:text-gray-300 mb-1">
-                            <Eye className="w-4 h-4 mr-1" />
-                            {adSpace.impressions}
-                          </div>
-                          <div className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                            <TrendingUp className="w-4 h-4 mr-1" />
-                            Starting at {adSpace.price}
-                          </div>
                         </div>
                         
                         <div className="mt-auto flex justify-between items-center">
@@ -580,10 +540,9 @@ const Index = () => {
                           </div>
                           <button 
                             onClick={() => togglePopup(adSpace)}
-                            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all duration-300 hover:scale-105 group"
+                            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg text-sm font-medium hover:shadow-md transition-all duration-300 hover:scale-105"
                           >
-                            <span className="relative z-10">Enquire Now</span>
-                            <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            Enquire Now
                           </button>
                         </div>
                       </div>
@@ -597,16 +556,16 @@ const Index = () => {
             <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-20">
               <button 
                 onClick={prevSlide}
-                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-xl hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 aria-label="Previous slide"
               >
                 <div className="relative">
-                  <ChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                  <div className="absolute inset-0 rounded-full bg-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                  <div className="absolute inset-0 rounded-full bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               </button>
               
-              <div className="flex items-center gap-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+              <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
                 {featuredAdSpaces.map((_, index) => (
                   <button
                     key={index}
@@ -623,12 +582,12 @@ const Index = () => {
               
               <button 
                 onClick={nextSlide}
-                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-xl hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:scale-110 transition-transform hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 aria-label="Next slide"
               >
                 <div className="relative">
-                  <ChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                  <div className="absolute inset-0 rounded-full bg-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                  <div className="absolute inset-0 rounded-full bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               </button>
             </div>
@@ -657,22 +616,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Enquire Popup */}
+      {/* Enquire Popup - UPDATED */}
       <AnimatePresence>
-        {showPopup && selectedAdSpace && (
+        {showPopup && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
             onClick={() => togglePopup()}
           >
             <motion.div
-              initial={{ scale: 0.9, y: 20, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 20, opacity: 0 }}
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25 }}
-              className="relative bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full p-8 shadow-2xl border border-gray-200 dark:border-gray-700"
+              className="relative bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full p-8 shadow-2xl border border-gray-200 dark:border-gray-700"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -683,90 +642,51 @@ const Index = () => {
                 <X className="w-6 h-6 text-gray-500 dark:text-gray-400" />
               </button>
 
-              <div className="flex flex-col md:flex-row gap-8">
-                {/* Ad Space Image */}
-                <div className="w-full md:w-1/2">
-                  <div className="relative h-64 md:h-full rounded-xl overflow-hidden shadow-lg group">
-                    <img 
-                      src={selectedAdSpace.image} 
-                      alt={selectedAdSpace.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              <div className="text-center">
+                <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                      Featured
-                    </div>
-                  </div>
+                  </svg>
                 </div>
 
-                {/* Form Content */}
-                <div className="w-full md:w-1/2">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-400/30">
-                      <Zap className="text-amber-500" size={24} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                      Enquire About <span className="text-amber-500">{selectedAdSpace.title}</span>
-                    </h3>
-                  </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Enquire About {selectedAdSpace?.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Thank you for your interest in {selectedAdSpace?.title}. Our team will contact you shortly with more details.
+                </p>
 
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center text-gray-700 dark:text-gray-300">
-                      <MapPin className="w-5 h-5 mr-2 text-amber-500" />
-                      <span>Location: {selectedAdSpace.location}</span>
-                    </div>
-                    <div className="flex items-center text-gray-700 dark:text-gray-300">
-                      <Eye className="w-5 h-5 mr-2 text-amber-500" />
-                      <span>Impressions: {selectedAdSpace.impressions}</span>
-                    </div>
-                    <div className="flex items-center text-gray-700 dark:text-gray-300">
-                      <TrendingUp className="w-5 h-5 mr-2 text-amber-500" />
-                      <span>Starting at: {selectedAdSpace.price}</span>
-                    </div>
-                    <div className="flex items-center text-gray-700 dark:text-gray-300">
-                      <Star className="w-5 h-5 mr-2 text-amber-500 fill-current" />
-                      <span>Rating: {selectedAdSpace.rating}/5</span>
-                    </div>
-                  </div>
-
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
-                        placeholder="Enter your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Message</label>
-                      <textarea 
-                        id="message" 
-                        rows={3}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
-                        placeholder="Tell us about your campaign needs"
-                        defaultValue={`I'm interested in ${selectedAdSpace.title} and would like more information.`}
-                      ></textarea>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 group"
-                    >
-                      <span className="relative z-10">Send Enquiry</span>
-                      <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    </button>
-                  </form>
+                <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-6">
+                  <motion.div
+                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-amber-500 to-orange-500"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
+                  />
                 </div>
+
+                <button
+                  onClick={() => togglePopup()}
+                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300 w-full"
+                >
+                  Got it!
+                </button>
               </div>
             </motion.div>
           </motion.div>
