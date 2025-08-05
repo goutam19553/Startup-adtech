@@ -88,7 +88,7 @@ const Advertisers = () => {
             <div>
               <h1 className="text-5xl md:text-6xl font-heading font-extrabold leading-tight mb-6 drop-shadow-lg">
                 Revolutionize Your Outdoor Advertising <br />
-                <span className="text-bharat-saffron">with Bharat-Ad</span>
+                <span className="text-bharat-saffron">with The Ad-Project</span>
               </h1>
               <p className="text-2xl md:text-2xl text-gray-300 mb-10 max-w-xl leading-relaxed tracking-wide">
                 Discover a new era of advertising excellence — premium ad
@@ -130,10 +130,10 @@ const Advertisers = () => {
         <div className="container-custom max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-heading font-extrabold mb-4 text-gray-900 dark:text-white tracking-tight">
-              Why Bharat-Ad? Unlock Game-Changing Benefits
+              Why The Ad-Project? Unlock Game-Changing Benefits
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Bharat-Ad blends cutting-edge technology with unmatched local
+              The Ad-Project blends cutting-edge technology with unmatched local
               expertise to put your brand in the spotlight — wherever your
               audience goes.
             </p>
@@ -167,7 +167,7 @@ const Advertisers = () => {
         <div className="container-custom max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-heading font-extrabold mb-4 text-gray-900 dark:text-white tracking-tight">
-              How Bharat-Ad Works: Your Journey to Advertising Mastery
+              How The Ad-Project Works: Your Journey to Advertising Mastery
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               A seamless, intuitive process powered by smart tech and expert
@@ -209,7 +209,7 @@ const Advertisers = () => {
               Next-Level AI-Powered Design Optimization
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              Let Bharat-Ad’s intelligent algorithms analyze every angle — from
+              Let The Ad-Project’s intelligent algorithms analyze every angle — from
               location nuances to audience preferences — delivering designs
               crafted to captivate and convert.
             </p>
@@ -254,7 +254,7 @@ const Advertisers = () => {
                 Ready to Elevate Your Brand’s Presence?
               </h2>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed max-w-lg">
-                Connect with our passionate team and discover how Bharat-Ad’s
+                Connect with our passionate team and discover how The Ad-Project’s
                 innovative ad platform, backed by AI and AR technology, can
                 transform your advertising strategy and amplify your impact.
               </p>
