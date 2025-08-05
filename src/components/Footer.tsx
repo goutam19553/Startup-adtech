@@ -1,8 +1,15 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, X } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handlePopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 4000); // auto-close after 4s
+  };
 
   return (
     <footer className="bg-bharat-navy text-white relative overflow-hidden pt-0">
@@ -12,23 +19,23 @@ const Footer = () => {
         viewBox="0 0 1440 150"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Light mode (white) */}
+        {/* Light mode */}
         <path
           className="dark:hidden"
           fill="#ffffff"
-          d="M0,96L48,80C96,64,192,32,288,42.7C384,53,480,107,576,122.7C672,139,768,117,864,117.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          d="M0,96L48,80C96,64,192,32,288,42.7C384,53,480,107,576,122.7C672,139,768,117,864,117.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,0L0,0Z"
         />
-        {/* Dark mode (gray/navy) */}
+        {/* Dark mode */}
         <path
           className="hidden dark:block"
           fill="#0f172a"
-          d="M0,96L48,80C96,64,192,32,288,42.7C384,53,480,107,576,122.7C672,139,768,117,864,117.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          d="M0,96L48,80C96,64,192,32,288,42.7C384,53,480,107,576,122.7C672,139,768,117,864,117.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,0L0,0Z"
         />
       </svg>
 
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Information */}
+          {/* Company Info */}
           <div>
             <h3 className="text-xl font-heading font-bold mb-4">
               The Ad<span className="text-bharat-saffron">-Project</span>
@@ -81,29 +88,25 @@ const Footer = () => {
               <li><Link to="/advertisers" className="text-gray-300 hover:text-bharat-saffron">Foot Traffic Analysis</Link></li>
               <li><Link to="/ad-space-owners" className="text-gray-300 hover:text-bharat-saffron">List Your Ad Space</Link></li>
               <li>
-                <a
-                  href="https://aioutdoorplanner.adproject.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-bharat-saffron"
+                <button
+                  onClick={handlePopup}
+                  className="text-left text-gray-300 hover:text-bharat-saffron w-full"
                 >
                   AI Ad Planner
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="https://droneads.adproject.in/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-bharat-saffron"
+                <button
+                  onClick={handlePopup}
+                  className="text-left text-gray-300 hover:text-bharat-saffron w-full"
                 >
                   Drone Advertisement
-                </a>
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
             <h3 className="text-xl font-heading font-bold mb-4">Contact Us</h3>
             <ul className="space-y-3">
@@ -130,10 +133,29 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
           <p>© {currentYear} The Ad-Project. All rights reserved.</p>
         </div>
       </div>
+
+      {/* Notification Popup */}
+      {showPopup && (
+        <div className="fixed bottom-5 right-5 bg-white border-l-4 border-bharat-saffron text-black p-4 rounded-lg shadow-lg max-w-xs z-50">
+          <div className="flex justify-between items-start gap-3">
+            <div>
+              <p className="font-semibold text-bharat-navy">Heads up! 🚧</p>
+              <p className="text-sm">
+                We're still under production environment.<br />
+                Thank you! Stay tuned ✨
+              </p>
+            </div>
+            <button onClick={() => setShowPopup(false)}>
+              <X className="h-4 w-4 text-gray-500 hover:text-black" />
+            </button>
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
